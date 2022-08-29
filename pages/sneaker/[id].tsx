@@ -168,7 +168,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   context
 ) => {
   const res = await fetch(
-    `http://localhost:3000/api/sneakers/${context.params?.id}`
+    `${
+      process.env.NODE_ENV === "development"
+        ? process.env.DEV_URL
+        : process.env.PROD_URL
+    }/api/sneakers/${context.params?.id}`
   );
   const sneaker = await res.json();
 
