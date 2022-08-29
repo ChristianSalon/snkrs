@@ -4,7 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { useAppState } from "../../AppContext";
-import { SphereBackground } from "../../components";
+import { BackButton, SphereBackground } from "../../components";
 import { Sneaker } from "../../types";
 
 interface Props {
@@ -19,6 +19,12 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
 
   useEffect(() => {
     setLastActiveSneaker(sneaker);
+  }, []);
+
+  useEffect(() => {
+    const GSAP = require("gsap/CSSRulePlugin");
+    const { CSSRulePlugin } = GSAP;
+    gsap.registerPlugin(CSSRulePlugin);
   }, []);
 
   useLayoutEffect(() => {
@@ -53,20 +59,30 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
   const buttonsEnter: React.MouseEventHandler<HTMLDivElement> = ({
     currentTarget,
   }) => {
-    gsap.to(currentTarget, { background: sneaker.textColor });
+    gsap.to(currentTarget.lastChild, {
+      top: "-100%",
+      duration: 0.3,
+      delay: 0.2,
+      ease: "power2.in",
+    });
     gsap.to(currentTarget.firstChild, { color: sneaker.bgColor });
   };
 
   const buttonsLeave: React.MouseEventHandler<HTMLDivElement> = ({
     currentTarget,
   }) => {
-    gsap.to(currentTarget, { background: sneaker.bgColor });
+    gsap.to(currentTarget.lastChild, {
+      top: "100%",
+      duration: 0.3,
+      delay: 0.2,
+      ease: "power2.in",
+    });
     gsap.to(currentTarget.firstChild, { color: sneaker.textColor });
   };
 
   return (
     <div
-      className="lg:px-32 relative"
+      className="lg:px-32 lg:pt-8"
       style={{ color: sneaker.textColor }}
       ref={wrapperRef}
     >
@@ -77,6 +93,8 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
 
       <SphereBackground />
 
+      <BackButton fill={sneaker.textColor} />
+
       <section className="flex flex-col items-center">
         <img
           src={sneaker.photoURL}
@@ -85,7 +103,7 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
         />
 
         <div
-          className="view-in-3d px-8 py-4 border-[1px] relative z-10 -top-6 cursor-pointer font-medium"
+          className="view-in-3d px-8 py-4 border-[1px] relative z-10 -top-6 cursor-pointer font-medium overflow-hidden"
           style={{
             background: sneaker.bgColor,
             borderColor: sneaker.textColor,
@@ -93,13 +111,11 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
           onMouseEnter={buttonsEnter}
           onMouseLeave={buttonsLeave}
         >
-          {/*<div
-            className="absolute top-0 bottom-0 left-0 right-0 z-20 opacity-0"
+          <Link href="#">View in 3D</Link>
+          <div
+            className="absolute -z-10 left-0 right-0 top-[100%] w-full h-[200%] rounded-t-[50%]"
             style={{ background: sneaker.textColor }}
-          />*/}
-          <Link href="#" style={{ position: "relative", zIndex: 30 }}>
-            View in 3D
-          </Link>
+          />
         </div>
       </section>
 
@@ -128,7 +144,7 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
             {sneaker.description}
           </p>
           <div
-            className="add-to-cart flex self-end justify-center items-center px-12 py-4 w-full xl:w-1/3 border-[1px] cursor-pointer font-medium"
+            className="add-to-cart flex self-end justify-center items-center px-12 py-4 w-full xl:w-1/3 border-[1px] cursor-pointer font-medium relative z-10 overflow-hidden"
             style={{
               background: sneaker.bgColor,
               borderColor: sneaker.textColor,
@@ -137,6 +153,10 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
             onMouseLeave={buttonsLeave}
           >
             <Link href="#">Add to cart</Link>
+            <div
+              className="absolute -z-10 left-0 right-0 top-[100%] w-full h-[200%] rounded-t-[50%]"
+              style={{ background: sneaker.textColor }}
+            />
           </div>
         </div>
       </section>

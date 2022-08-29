@@ -5,15 +5,15 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { useSphere } from "@react-three/cannon";
 
 const Sphere: React.FC = () => {
-  //const sphereRef = useRef<Mesh>(null);
-  const [sphereRef, api] = useSphere(() => ({
+  const sphereRef = useRef<Mesh>(null);
+  /*const [sphereRef, api] = useSphere(() => ({
     mass: 1,
     position: [
       Math.random() * 200 - 100,
       Math.random() * 100 - 50,
       Math.random() * 100 - 50,
     ],
-  }));
+  }));*/
 
   const colorMap = useLoader(TextureLoader, "/spheres/lighting-blue.png");
 

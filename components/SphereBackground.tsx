@@ -1,7 +1,7 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrthographicCamera } from "@react-three/drei";
-import { Sphere, Border } from ".";
+import { Sphere } from ".";
 import { Physics } from "@react-three/cannon";
 import { useAppState } from "../AppContext";
 
