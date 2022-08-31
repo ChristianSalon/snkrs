@@ -2,7 +2,7 @@ import gsap from "gsap";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useAppState } from "../../AppContext";
 import { BackButton, SphereBackground } from "../../components";
 import { Sneaker } from "../../types";
@@ -27,7 +27,7 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
     gsap.registerPlugin(CSSRulePlugin);
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     gsap.fromTo(q(".view-in-3d"), { opacity: 0 }, { opacity: 1, duration: 2 });
     gsap.to(q(".divider-mask"), {
       right: "100%",

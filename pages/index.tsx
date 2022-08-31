@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAppState } from "../AppContext";
 import { Sneaker, SphereBackground } from "../components";
 import { useWindow } from "../hooks";
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
     );
   }, [scrollY]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     gsap.fromTo(
       q(".hero-title"),
       { y: 100, opacity: 0 },
