@@ -41,12 +41,6 @@ const Home: NextPage = () => {
     if (sneaker && sneaker !== lastActiveSneaker) {
       setLastActiveSneaker(sneaker);
     }
-
-    console.log(
-      sneakerId,
-      scrollY + windowHeight,
-      sectionHeight + sectionStart
-    );
   }, [scrollY]);
 
   useEffect(() => {

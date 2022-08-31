@@ -24,7 +24,6 @@ const Sneaker: React.FC<Props> = ({ sneaker }) => {
   }) => {
     setLastActiveSneaker(sneaker);
     setIsSneakerActive(true);
-    console.log(sneaker);
     gsap.to(q(".sneaker-image"), { scale: 1.1 });
     gsap.fromTo(
       q(".sneaker-details"),

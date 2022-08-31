@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrthographicCamera } from "@react-three/drei";
 import { Sphere } from ".";
@@ -9,6 +9,12 @@ import { useWindow } from "../hooks";
 const SphereBackground: React.FC = () => {
   const { lastActiveSneaker } = useAppState();
   const { windowOuterHeight } = useWindow();
+
+  useEffect(() => {
+    document.body.style.background = lastActiveSneaker.bgColor;
+    document.body.style.transition =
+      "background 300ms cubic-bezier(0.4, 0, 0.2, 1)";
+  }, [lastActiveSneaker]);
 
   return (
     <div
