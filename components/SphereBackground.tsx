@@ -8,13 +8,13 @@ import { useWindow } from "../hooks";
 
 const SphereBackground: React.FC = () => {
   const { lastActiveSneaker } = useAppState();
-  const { windowHeight } = useWindow();
+  const { windowOuterHeight } = useWindow();
 
   return (
     <div
-      className={`h-[${windowHeight}px] fixed -z-10 top-0 left-0 right-0 transition-colors duration-300`}
+      className="fixed -z-10 top-0 left-0 right-0 transition-colors duration-300"
       style={{
-        height: window.outerHeight,
+        height: windowOuterHeight,
         background: lastActiveSneaker.bgColor,
       }}
     >
