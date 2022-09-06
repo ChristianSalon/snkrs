@@ -111,7 +111,7 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
           onMouseEnter={buttonsEnter}
           onMouseLeave={buttonsLeave}
         >
-          <Link href="#">View in 3D</Link>
+          <Link href={`/view-in-3d/${sneaker.id}`}>View in 3D</Link>
           <div
             className="absolute -z-10 left-0 right-0 top-[100%] w-full h-[200%] rounded-t-[50%]"
             style={{ background: sneaker.textColor }}

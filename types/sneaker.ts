@@ -1,4 +1,4 @@
-import { LargeNumberLike } from "crypto";
+import { ReactNode } from "react";
 
 interface Sneaker {
   id: number;

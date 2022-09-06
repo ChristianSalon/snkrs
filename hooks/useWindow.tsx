@@ -5,7 +5,7 @@ const useWindow = () => {
   const [windowHeight, setWindowHeight] = useState(0);
   const [windowOuterWidth, setWindowOuterWidth] = useState(0);
   const [windowOuterHeight, setWindowOuterHeight] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
+  let scrollY = 0;
 
   useEffect(() => {
     const handleResize = () => {
@@ -16,7 +16,7 @@ const useWindow = () => {
     };
 
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      scrollY = window.scrollY;
     };
 
     window.addEventListener("resize", handleResize);

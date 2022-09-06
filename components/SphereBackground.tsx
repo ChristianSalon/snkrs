@@ -24,39 +24,60 @@ const SphereBackground: React.FC = () => {
         background: lastActiveSneaker.bgColor,
       }}
     >
-      {/*<Canvas>
+      <Canvas>
         <OrthographicCamera makeDefault position={[0, 0, 100]} zoom={10} />
 
-        <Physics gravity={[0, 0, 0]}>
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-          <Sphere />
-        </Physics>
-    </Canvas>*/}
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+        <Sphere />
+      </Canvas>
     </div>
   );
 };

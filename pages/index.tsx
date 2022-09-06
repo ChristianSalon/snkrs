@@ -23,6 +23,10 @@ const Home: NextPage = () => {
   }, []);
 
   useEffect(() => {
+    console.log("index");
+  });
+
+  useEffect(() => {
     const section = sneakersWrapper.current;
     if (section === null || windowWidth >= 1024) return;
 
@@ -46,18 +50,18 @@ const Home: NextPage = () => {
   useEffect(() => {
     gsap.fromTo(
       q(".hero-title"),
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power2.inOut" }
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power2.out" }
     );
     gsap.fromTo(
       q(".hero-description"),
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, delay: 0.2, ease: "power2.inOut" }
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, delay: 0.3, ease: "power2.out" }
     );
     gsap.fromTo(
       sneakersWrapper.current,
       { opacity: 0 },
-      { opacity: 1, duration: 1, delay: 0.6, ease: "power2.inOut" }
+      { opacity: 1, duration: 1, delay: 0.6, ease: "power2.out" }
     );
   }, []);
 
@@ -94,7 +98,7 @@ const Home: NextPage = () => {
         ))}
       </section>
 
-      <footer className="pt-24 lg:pt-32 pb-12 text-sm lg:text-base">
+      <footer className="pt-28 lg:pt-32 pb-12 text-sm lg:text-base">
         Made by Christian Saloň
       </footer>
     </div>

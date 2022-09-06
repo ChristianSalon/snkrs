@@ -3,17 +3,14 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { Mesh } from "three";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { useSphere } from "@react-three/cannon";
+import { useAppState } from "../AppContext";
 
 const Sphere: React.FC = () => {
   const sphereRef = useRef<Mesh>(null);
-  /*const [sphereRef, api] = useSphere(() => ({
-    mass: 1,
-    position: [
-      Math.random() * 200 - 100,
-      Math.random() * 100 - 50,
-      Math.random() * 100 - 50,
-    ],
-  }));*/
+
+  const { lastActiveSneaker } = useAppState();
+
+  console.log(lastActiveSneaker.bgColor);
 
   const colorMap = useLoader(TextureLoader, "/spheres/lighting-blue.png");
 
@@ -36,7 +33,7 @@ const Sphere: React.FC = () => {
     sphereRef.current.position.z += 0.005;
   });*/
 
-  /*useFrame(({ clock }) => {
+  useFrame(({ clock }) => {
     if (!sphereRef.current) return;
 
     sphereRef.current.rotation.x += sphereRotationSpeed;
@@ -54,13 +51,20 @@ const Sphere: React.FC = () => {
         (Math.random() * 2 - 1) / 1000 +
         sphereMovementSpeed
     );
-  });*/
+  });
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <mesh ref={sphereRef}>
-        <sphereGeometry args={[Math.max(5, Math.random() * 20), 32, 32]} />
-        <meshBasicMaterial map={colorMap} />
+      <mesh
+        ref={sphereRef}
+        position={[
+          Math.round((Math.random() * 2 - 1) * 100),
+          Math.round((Math.random() * 2 - 1) * 100),
+          Math.round(Math.random() * 50),
+        ]}
+      >
+        <sphereGeometry args={[Math.round(Math.random() * 25), 32, 32]} />
+        <meshBasicMaterial color={lastActiveSneaker.textColor} />
       </mesh>
     </Suspense>
   );
