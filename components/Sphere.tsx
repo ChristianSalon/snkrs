@@ -3,14 +3,12 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { Mesh } from "three";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { useSphere } from "@react-three/cannon";
-import { useAppState } from "../AppContext";
+import { useSneaker } from "../hooks";
 
 const Sphere: React.FC = () => {
   const sphereRef = useRef<Mesh>(null);
 
-  const { lastActiveSneaker } = useAppState();
-
-  console.log(lastActiveSneaker.bgColor);
+  const { sneakerTextColor } = useSneaker();
 
   const colorMap = useLoader(TextureLoader, "/spheres/lighting-blue.png");
 
@@ -64,7 +62,7 @@ const Sphere: React.FC = () => {
         ]}
       >
         <sphereGeometry args={[Math.round(Math.random() * 25), 32, 32]} />
-        <meshBasicMaterial color={lastActiveSneaker.textColor} />
+        <meshBasicMaterial color={sneakerTextColor} />
       </mesh>
     </Suspense>
   );

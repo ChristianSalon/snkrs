@@ -16,7 +16,6 @@ const ViewIn3D: NextPage<Props> = ({ sneaker }) => {
     <div className="w-screen h-screen">
       <Head>
         <title>snkrs.</title>
-        <link rel="icon" href="/logo.png" />
       </Head>
 
       <Canvas>

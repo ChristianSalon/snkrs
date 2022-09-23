@@ -3,7 +3,6 @@ import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { useAppState } from "../../AppContext";
 import { BackButton, SphereBackground } from "../../components";
 import { Sneaker } from "../../types";
 
@@ -12,14 +11,9 @@ interface Props {
 }
 
 const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
-  const { setLastActiveSneaker } = useAppState();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const q = gsap.utils.selector(wrapperRef);
   const tl = useRef<gsap.core.Timeline | null>(null);
-
-  useEffect(() => {
-    setLastActiveSneaker(sneaker);
-  }, []);
 
   useEffect(() => {
     const GSAP = require("gsap/CSSRulePlugin");
@@ -88,7 +82,6 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
     >
       <Head>
         <title>snkrs.</title>
-        <link rel="icon" href="/logo.png" />
       </Head>
 
       <SphereBackground />

@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import Link from "next/link";
-import React, { useRef } from "react";
-import { useAppState } from "../AppContext";
+import React, { useRef, useState } from "react";
+import { useSneaker } from "../hooks";
 import { Sneaker } from "../types";
 
 interface Props {
@@ -9,12 +9,9 @@ interface Props {
 }
 
 const Sneaker: React.FC<Props> = ({ sneaker }) => {
-  const {
-    lastActiveSneaker,
-    setLastActiveSneaker,
-    isSneakerActive,
-    setIsSneakerActive,
-  } = useAppState();
+  const { sneakerId, sneakerTextColor, setLastActiveSneaker } = useSneaker();
+
+  const [isSneakerActive, setIsSneakerActive] = useState(false);
 
   const sneakerRef = useRef<HTMLDivElement>(null);
   const q = gsap.utils.selector(sneakerRef);
@@ -44,14 +41,13 @@ const Sneaker: React.FC<Props> = ({ sneaker }) => {
       <div
         ref={sneakerRef}
         className="space-y-4 cursor-pointer"
+        style={{ color: sneakerTextColor }}
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
       >
         <div
           className={`overflow-hidden ${
-            isSneakerActive && lastActiveSneaker.id !== sneaker.id
-              ? "grayscale"
-              : null
+            isSneakerActive && sneakerId !== sneaker.id ? "grayscale" : null
           }`}
         >
           <img
