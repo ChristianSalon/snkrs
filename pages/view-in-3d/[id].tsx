@@ -3,8 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { Suspense } from "react";
-import { BackButton, SneakerModel } from "../../components";
-import { LightingBlue } from "../../components/models/LightingBlue";
+import { SneakerModel } from "../../components";
 import { Sneaker } from "../../types";
 
 interface Props {
@@ -34,7 +33,9 @@ const ViewIn3D: NextPage<Props> = ({ sneaker }) => {
           position={[-10, 0, 0]}
         />
 
-        <SneakerModel sneakerId={sneaker.id} />
+        <Suspense fallback={null}>
+          <SneakerModel sneakerId={sneaker.id} />
+        </Suspense>
       </Canvas>
     </div>
   );

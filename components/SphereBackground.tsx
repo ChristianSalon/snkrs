@@ -4,7 +4,11 @@ import { OrthographicCamera } from "@react-three/drei";
 import { useSneaker } from "../hooks";
 import { Sphere } from ".";
 
-const SphereBackground: React.FC = () => {
+interface Props {
+  bgColor?: string;
+}
+
+const SphereBackground: React.FC<Props> = ({ bgColor }) => {
   const { sneakerId, sneakerBgColor } = useSneaker();
 
   useEffect(() => {
@@ -22,7 +26,7 @@ const SphereBackground: React.FC = () => {
     <div
       className="fixed -z-10 top-0 bottom-0 left-0 right-0 transition-colors duration-300"
       style={{
-        background: sneakerBgColor,
+        background: bgColor ? bgColor : sneakerBgColor,
       }}
     >
       <Canvas>

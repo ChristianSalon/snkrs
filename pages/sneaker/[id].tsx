@@ -84,7 +84,7 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
         <title>snkrs.</title>
       </Head>
 
-      <SphereBackground />
+      <SphereBackground bgColor={sneaker.bgColor} />
 
       <BackButton fill={sneaker.textColor} />
 
