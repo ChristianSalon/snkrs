@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Sneaker } from ".";
 import { useWindow, useSneaker, useScroll } from "../hooks";
 import { sneakers } from "../sneakers";
 
 const SneakerGrid: React.FC = () => {
+  const [isSneakerActive, setIsSneakerActive] = useState(false);
+
   const { setLastActiveSneaker } = useSneaker();
 
   const sneakersWrapper = useRef<HTMLDivElement>(null);
@@ -19,7 +21,12 @@ const SneakerGrid: React.FC = () => {
       className="sneaker-grid grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16"
     >
       {[...sneakers.values()].map((sneaker) => (
-        <Sneaker sneaker={sneaker} key={sneaker.id} />
+        <Sneaker
+          sneaker={sneaker}
+          isSneakerActive={isSneakerActive}
+          setIsSneakerActive={setIsSneakerActive}
+          key={sneaker.id}
+        />
       ))}
     </section>
   );

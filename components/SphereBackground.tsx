@@ -9,17 +9,12 @@ interface Props {
 }
 
 const SphereBackground: React.FC<Props> = ({ bgColor }) => {
-  const { sneakerId, sneakerBgColor } = useSneaker();
-
-  useEffect(() => {
-    console.log("sphereBG");
-  });
+  const { sneakerId, sneakerBgColor, sneakerTextColor } = useSneaker();
 
   useEffect(() => {
     document.body.style.background = sneakerBgColor;
     document.body.style.transition =
       "background 300ms cubic-bezier(0.4, 0, 0.2, 1)";
-    console.log("change");
   }, [sneakerId]);
 
   return (
@@ -32,56 +27,56 @@ const SphereBackground: React.FC<Props> = ({ bgColor }) => {
       <Canvas>
         <OrthographicCamera makeDefault position={[0, 0, 100]} zoom={10} />
 
-        {/* <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere />
-        <Sphere /> 
-        <Sphere />*/}
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
+        <Sphere color={sneakerTextColor} />
       </Canvas>
     </div>
   );

@@ -18,8 +18,6 @@ const useWindow = () => {
     };
   }, []);
 
-  useEffect(() => console.log("Resize"), [windowWidth]);
-
   return { windowWidth, windowHeight };
 };
 

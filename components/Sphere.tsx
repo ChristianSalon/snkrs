@@ -1,14 +1,17 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { Mesh } from "three";
+import { Mesh, MeshBasicMaterial } from "three";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
-import { useSphere } from "@react-three/cannon";
 import { useSneaker } from "../hooks";
 
-const Sphere: React.FC = () => {
+interface Props {
+  color: "black" | "white";
+}
+
+const Sphere: React.FC<Props> = ({ color }) => {
   const sphereRef = useRef<Mesh>(null);
 
-  const { sneakerTextColor } = useSneaker();
+  const { sneakerTextColor, sneakerId } = useSneaker();
 
   const colorMap = useLoader(TextureLoader, "/spheres/lighting-blue.png");
 
@@ -52,7 +55,7 @@ const Sphere: React.FC = () => {
   });
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={null}>
       <mesh
         ref={sphereRef}
         position={[
@@ -62,7 +65,7 @@ const Sphere: React.FC = () => {
         ]}
       >
         <sphereGeometry args={[Math.round(Math.random() * 25), 32, 32]} />
-        <meshBasicMaterial color={sneakerTextColor} />
+        <meshBasicMaterial color={color} />
       </mesh>
     </Suspense>
   );

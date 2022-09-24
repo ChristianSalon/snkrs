@@ -1,17 +1,21 @@
 import gsap from "gsap";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSneaker } from "../hooks";
 import { Sneaker } from "../types";
 
 interface Props {
   sneaker: Sneaker;
+  isSneakerActive: boolean;
+  setIsSneakerActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Sneaker: React.FC<Props> = ({ sneaker }) => {
+const Sneaker: React.FC<Props> = ({
+  sneaker,
+  isSneakerActive,
+  setIsSneakerActive,
+}) => {
   const { sneakerId, sneakerTextColor, setLastActiveSneaker } = useSneaker();
-
-  const [isSneakerActive, setIsSneakerActive] = useState(false);
 
   const sneakerRef = useRef<HTMLDivElement>(null);
   const q = gsap.utils.selector(sneakerRef);
