@@ -37,7 +37,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function ElectricLight(props: JSX.IntrinsicElements["group"]) {
+export default function ElectricLight(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/electric-light.gltf"
   ) as GLTFResult;

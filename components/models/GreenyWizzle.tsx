@@ -37,7 +37,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function GreenyWizzle(props: JSX.IntrinsicElements["group"]) {
+export default function GreenyWizzle(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/greeny-wizzle.gltf"
   ) as GLTFResult;

@@ -5,57 +5,48 @@ interface Props {
   sneakerId: number;
 }
 
-const DynamicAerialLight = dynamic(
-  () => import("./models/AerialLight") as any,
-  {
-    suspense: true,
-  }
-);
-const DynamicBlackSpecial = dynamic(
-  () => import("./models/BlackSpecial") as any,
-  {
-    suspense: true,
-  }
-);
+const DynamicAerialLight = dynamic(() => import("./models/AerialLight"), {
+  suspense: true,
+});
+
+const DynamicBlackSpecial = dynamic(() => import("./models/BlackSpecial"), {
+  suspense: true,
+});
+
 const DynamicCoolKidsFavourite = dynamic(
-  () => import("./models/CoolKidsFavourite") as any,
+  () => import("./models/CoolKidsFavourite"),
   {
     suspense: true,
   }
 );
-const DynamicDarkTrails = dynamic(() => import("./models/DarkTrails") as any, {
+
+const DynamicDarkTrails = dynamic(() => import("./models/DarkTrails"), {
   suspense: true,
 });
-const DynamicElectricLight = dynamic(
-  () => import("./models/ElectricLight") as any,
-  {
-    suspense: true,
-  }
-);
-const DynamicGreenyWizzle = dynamic(
-  () => import("./models/GreenyWizzle") as any,
-  {
-    suspense: true,
-  }
-);
-const DynamicLightingBlue = dynamic(
-  () => import("./models/LightingBlue") as any,
-  {
-    suspense: true,
-  }
-);
-const DynamicSunnyShiny = dynamic(() => import("./models/SunnyShiny") as any, {
+
+const DynamicElectricLight = dynamic(() => import("./models/ElectricLight"), {
   suspense: true,
 });
-const DynamicTheBasic = dynamic(() => import("./models/TheBasic") as any, {
+
+const DynamicGreenyWizzle = dynamic(() => import("./models/GreenyWizzle"), {
   suspense: true,
 });
-const DynamicWindyMountains = dynamic(
-  () => import("./models/WindyMountains") as any,
-  {
-    suspense: true,
-  }
-);
+
+const DynamicLightingBlue = dynamic(() => import("./models/LightingBlue"), {
+  suspense: true,
+});
+
+const DynamicSunnyShiny = dynamic(() => import("./models/SunnyShiny"), {
+  suspense: true,
+});
+
+const DynamicTheBasic = dynamic(() => import("./models/TheBasic"), {
+  suspense: true,
+});
+
+const DynamicWindyMountains = dynamic(() => import("./models/WindyMountains"), {
+  suspense: true,
+});
 
 const SneakerModel: React.FC<Props> = ({ sneakerId }) => {
   const returnModel = () => {
@@ -84,7 +75,7 @@ const SneakerModel: React.FC<Props> = ({ sneakerId }) => {
         return <DynamicAerialLight />;
     }
   };
-  return <Suspense fallback={null}>{returnModel()}</Suspense>;
+  return returnModel();
 };
 
 export default SneakerModel;

@@ -37,7 +37,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function WindyMountains(props: JSX.IntrinsicElements["group"]) {
+export default function WindyMountains(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/windy-mountains.gltf"
   ) as GLTFResult;

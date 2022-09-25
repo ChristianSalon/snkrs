@@ -1,5 +1,4 @@
 import { Sneaker } from "./types";
-import { LightingBlue } from "./components/models/LightingBlue";
 
 export const sneakers = new Map<string, Sneaker>([
   [

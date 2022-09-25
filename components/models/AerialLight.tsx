@@ -35,7 +35,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function AerialLight(props: JSX.IntrinsicElements["group"]) {
+export default function AerialLight(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/aerial-light.gltf"
   ) as GLTFResult;

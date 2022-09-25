@@ -65,7 +65,7 @@ const Sphere: React.FC<Props> = ({ color }) => {
         ]}
       >
         <sphereGeometry args={[Math.round(Math.random() * 25), 32, 32]} />
-        <meshBasicMaterial color={color} />
+        <meshBasicMaterial color={color} map={colorMap} />
       </mesh>
     </Suspense>
   );

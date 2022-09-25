@@ -40,7 +40,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function DarkTrails(props: JSX.IntrinsicElements["group"]) {
+export default  function DarkTrails(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/dark-trails.gltf"
   ) as GLTFResult;

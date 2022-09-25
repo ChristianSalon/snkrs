@@ -38,7 +38,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function SunnyShiny(props: JSX.IntrinsicElements["group"]) {
+export default function SunnyShiny(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/sunny-shiny.gltf"
   ) as GLTFResult;

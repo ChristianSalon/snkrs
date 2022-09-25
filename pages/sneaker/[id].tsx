@@ -23,10 +23,10 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
 
   useEffect(() => {
     gsap.fromTo(q(".view-in-3d"), { opacity: 0 }, { opacity: 1, duration: 2 });
-    gsap.to(q(".divider-mask"), {
-      right: "100%",
+    gsap.to(q(".divider"), {
+      width: "100%",
       duration: 1,
-      ease: "easeIn",
+      delay: 0.5,
     });
     gsap.fromTo(
       q(".sneaker-name"),
@@ -124,14 +124,9 @@ const SneakerDetails: NextPage<Props> = ({ sneaker }) => {
           </h4>
         </div>
         <div
-          className="divider w-full h-[2px] mb-8 relative"
+          className="divider w-0 h-[2px] mb-8"
           style={{ background: sneaker.textColor }}
-        >
-          <div
-            className="divider-mask absolute top-0 bottom-0 left-0 right-0"
-            style={{ background: sneaker.bgColor }}
-          ></div>
-        </div>
+        />
         <div className="flex flex-col gap-16 xl:flex-row">
           <p className="sneaker-description sm:text-lg xl:w-2/3 leading-loose sm:leading-loose">
             {sneaker.description}

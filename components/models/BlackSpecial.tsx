@@ -42,7 +42,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function BlackSpecial(props: JSX.IntrinsicElements["group"]) {
+export default function BlackSpecial(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/black-special.gltf"
   ) as GLTFResult;

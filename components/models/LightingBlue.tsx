@@ -37,7 +37,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function LightingBlue(props: JSX.IntrinsicElements["group"]) {
+export default function LightingBlue(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/lighting-blue.gltf"
   ) as GLTFResult;

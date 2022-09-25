@@ -37,7 +37,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function TheBasic(props: JSX.IntrinsicElements["group"]) {
+export default function TheBasic(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF("/models/the-basic.gltf") as GLTFResult;
   return (
     <group {...props} dispose={null}>

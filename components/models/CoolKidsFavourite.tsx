@@ -36,7 +36,9 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function CoolKidsFavourite(props: JSX.IntrinsicElements["group"]) {
+export default function CoolKidsFavourite(
+  props: JSX.IntrinsicElements["group"]
+) {
   const { nodes, materials } = useGLTF(
     "/models/cool-kids-favourite.gltf"
   ) as GLTFResult;

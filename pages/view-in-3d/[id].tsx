@@ -32,8 +32,7 @@ const ViewIn3D: NextPage<Props> = ({ sneaker }) => {
           intensity={0.5}
           position={[-10, 0, 0]}
         />
-
-        <Suspense fallback={null}>
+        <Suspense fallback="Loading...">
           <SneakerModel sneakerId={sneaker.id} />
         </Suspense>
       </Canvas>
