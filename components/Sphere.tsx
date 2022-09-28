@@ -1,19 +1,20 @@
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { Suspense, useRef, useState, useEffect } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { Mesh, MeshBasicMaterial } from "three";
+import { Mesh } from "three";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { useSneaker } from "../hooks";
 
 interface Props {
-  color: "black" | "white";
+  sneakerName: string;
 }
 
-const Sphere: React.FC<Props> = ({ color }) => {
+const Sphere: React.FC<Props> = ({ sneakerName }) => {
   const sphereRef = useRef<Mesh>(null);
 
-  const { sneakerTextColor, sneakerId } = useSneaker();
+  const sphereTexture =
+    sneakerName.toLowerCase().replaceAll(" ", "-") + "-sphere.png";
 
-  const colorMap = useLoader(TextureLoader, "/spheres/lighting-blue.png");
+  const colorMap = useLoader(TextureLoader, `/spheres/${sphereTexture}`);
 
   const sphereMovementSpeed = (Math.random() * 2 - 1) / 50;
   const sphereRotationSpeed = (Math.random() * 2 - 1) / 50;
@@ -48,9 +49,7 @@ const Sphere: React.FC<Props> = ({ color }) => {
       sphereRef.current.position.y +
         (Math.random() * 2 - 1) / 1000 +
         sphereMovementSpeed,
-      sphereRef.current.position.z +
-        (Math.random() * 2 - 1) / 1000 +
-        sphereMovementSpeed
+      sphereRef.current.position.z
     );
   });
 
@@ -65,7 +64,7 @@ const Sphere: React.FC<Props> = ({ color }) => {
         ]}
       >
         <sphereGeometry args={[Math.round(Math.random() * 25), 32, 32]} />
-        <meshBasicMaterial color={color} map={colorMap} />
+        <meshBasicMaterial map={colorMap} />
       </mesh>
     </Suspense>
   );

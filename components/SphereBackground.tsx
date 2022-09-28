@@ -9,7 +9,7 @@ interface Props {
 }
 
 const SphereBackground: React.FC<Props> = ({ bgColor }) => {
-  const { sneakerId, sneakerBgColor, sneakerTextColor } = useSneaker();
+  const { sneakerId, sneakerBgColor, sneakerName } = useSneaker();
 
   useEffect(() => {
     document.body.style.background = sneakerBgColor;
@@ -26,57 +26,58 @@ const SphereBackground: React.FC<Props> = ({ bgColor }) => {
     >
       <Canvas>
         <OrthographicCamera makeDefault position={[0, 0, 100]} zoom={10} />
+        <ambientLight />
 
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
-        <Sphere color={sneakerTextColor} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
+        <Sphere sneakerName={sneakerName} />
       </Canvas>
     </div>
   );

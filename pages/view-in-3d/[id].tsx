@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { Suspense } from "react";
-import { SneakerModel } from "../../components";
+import { SneakerModel, SphereBackground } from "../../components";
 import { Sneaker } from "../../types";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 
 const ViewIn3D: NextPage<Props> = ({ sneaker }) => {
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen bg-gray-300">
       <Head>
         <title>snkrs.</title>
       </Head>
